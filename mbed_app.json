@@ -10,7 +10,7 @@
         },
         "debug-trace": "false",
         "trace-baud-rate": "115200",
-        "backhaul-driver": "ETH",
+        "backhaul-driver": "ETHER",
         "backhaul-mac-src": "BOARD",
         "backhaul-mac": "{0x02, 0x00, 0x00, 0x00, 0x00, 0x01}",
         "slip_hw_flow_control": "false",

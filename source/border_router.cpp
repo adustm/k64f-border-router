@@ -99,6 +99,7 @@ void backhaul_driver_init(void (*backhaul_driver_status_cb)(uint8_t, int8_t))
     driver = STR(YOTTA_CFG_K64F_BORDER_ROUTER_BACKHAUL_DRIVER);
 #else
     driver = STR(MBED_CONF_APP_BACKHAUL_DRIVER);
+    printf("backhaul driver is : %s\n",driver);
 #endif
 
     if (strcmp(driver, "SLIP") == 0) {
@@ -128,8 +129,8 @@ void backhaul_driver_init(void (*backhaul_driver_status_cb)(uint8_t, int8_t))
         }
 
         tr_error("Backhaul driver init failed, retval = %d", slipdrv_id);
-    } else if (strcmp(driver, "ETH") == 0) {
-        tr_info("Using ETH backhaul driver...");
+    } else if (strcmp(driver, "ETHER") == 0) {
+        tr_info("Using ETHERNET backhaul driver...");
         arm_eth_phy_device_register(mac, backhaul_driver_status_cb);
         return;
     }
@@ -192,7 +193,7 @@ void app_start(int, char **)
 #else
     led_ticker.attach_us(toggle_led1, 500000);
 #endif
-    tr_info("Starting K64F border router...");
+    tr_info("Starting NUCLEO_F429ZI border router...");
     border_router_start();
 }
 
